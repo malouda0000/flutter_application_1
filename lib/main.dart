@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Controllers/bloc/custom_items_bloc.dart';
-import 'package:flutter_application_1/Views/screens/add_more_item_screen.dart';
 import 'package:flutter_application_1/Views/widgets/custom_errore_widget.dart';
 import 'package:flutter_application_1/Views/widgets/custom_loading_widget.dart';
 import 'package:flutter_application_1/Views/widgets/items_widget.dart';
@@ -51,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Emerging Ideas',
             style: TextStyle(color: Colors.white),
           ),

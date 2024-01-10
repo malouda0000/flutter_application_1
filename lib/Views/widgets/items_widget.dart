@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Controllers/bloc/custom_items_bloc.dart';
 import 'package:flutter_application_1/Models/emer_item_modle.dart';
@@ -24,7 +23,7 @@ class CustomItemsWidget extends StatelessWidget {
             child: ListView.builder(
               itemCount: items.length,
               itemBuilder: (BuildContext context, int index) {
-                Emeritem emeritems = this.items[index];
+                Emeritem emeritems = items[index];
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Card(
@@ -34,7 +33,7 @@ class CustomItemsWidget extends StatelessWidget {
                           child: Text(
                             // emeritems[index].id.toString(),
                             emeritems.id.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                             ),
                           ),
@@ -42,7 +41,7 @@ class CustomItemsWidget extends StatelessWidget {
                         // title: Text(emeritems[index].title),
                         title: Text(emeritems.title),
                         subtitle: Text(emeritems.description),
-                        trailing: Icon(
+                        trailing: const Icon(
                           Icons.arrow_forward_ios,
                           color: AppColor.kPrimaryColor,
                         ),
@@ -75,13 +74,13 @@ class CustomItemsWidget extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => AddMoreItemScreen(),
+                builder: (context) => const AddMoreItemScreen(),
               ),
 
               //  ItemDetScreen(emeritem: emeritems[index],)
             );
           },
-          child: Text(
+          child: const Text(
             'add more',
             style: TextStyle(color: Colors.white),
           ),

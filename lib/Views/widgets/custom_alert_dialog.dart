@@ -1,7 +1,4 @@
 //custom_alert_dialog.dart
-
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
 import 'package:motion_toast/motion_toast.dart';
@@ -31,21 +28,21 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           Text(
-            "${widget.title}",
-            style: TextStyle(
+            widget.title,
+            style: const TextStyle(
               fontSize: 18.0,
               fontWeight: FontWeight.bold,
             ),
           ),
-          SizedBox(height: 15),
-          Text("${widget.description}"),
-          SizedBox(height: 20),
-          Divider(
+          const SizedBox(height: 15),
+          Text(widget.description),
+          const SizedBox(height: 20),
+          const Divider(
             height: 1,
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 50,
             child: InkWell(
@@ -55,7 +52,7 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
                 // Toast
                 MotionToast(
                   primaryColor: Colors.green,
-                  description: Text("This featuars is under development"),
+                  description: const Text("This featuars is under development"),
                   icon: Icons.code_rounded,
                   width: MediaQuery.of(context).size.width * .8,
                   height: 100,
@@ -65,7 +62,7 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
                   // ),
                 ).show(context);
               },
-              child: Center(
+              child: const Center(
                 child: Text(
                   "remove !!",
                   style: TextStyle(
@@ -77,14 +74,14 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
               ),
             ),
           ),
-          Divider(
+          const Divider(
             height: 1,
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 50,
             child: InkWell(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(15.0),
                 bottomRight: Radius.circular(15.0),
               ),
@@ -92,7 +89,7 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
               onTap: () {
                 Navigator.of(context).pop();
               },
-              child: Center(
+              child: const Center(
                 child: Text(
                   "Cancel",
                   style: TextStyle(

@@ -27,16 +27,16 @@ Future postItem(
       }),
     );
     if (post != null) {
-      print('succccessss');
+      // print('succccessss');
       // print(post.);
 
       return post;
     } else {
-      print('errrrrororororor');
+      // print('errrrrororororor');
       throw 'Error';
     }
   } catch (e) {
-    print(e);
+    // print(e);
     throw 'Error';
   }
 }
