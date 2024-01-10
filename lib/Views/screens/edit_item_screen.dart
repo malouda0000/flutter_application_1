@@ -26,7 +26,7 @@ class EditItemScreen extends StatelessWidget {
         backgroundColor: AppColor.kPrimaryColor,
         title: Text(
           emeritem.title,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
         ),
@@ -110,7 +110,7 @@ class EditItemScreen extends StatelessWidget {
             //   //   FormBuilderValidators.required(),
             //   // ]),
             // ),
-            Spacer(),
+            const Spacer(),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColor.kPrimaryColor,
@@ -118,7 +118,7 @@ class EditItemScreen extends StatelessWidget {
               onPressed: () async {
                 MotionToast(
                   primaryColor: AppColor.kPrimaryColor,
-                  description: Text("This featuars is under development"),
+                  description: const Text("This featuars is under development"),
                   icon: Icons.code_rounded,
                   width: MediaQuery.of(context).size.width * .8,
                   height: 100,

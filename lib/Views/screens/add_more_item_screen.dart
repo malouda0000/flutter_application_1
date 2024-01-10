@@ -21,7 +21,7 @@ class AddMoreItemScreen extends StatelessWidget {
               Icons.arrow_back_ios_new,
               color: Colors.white,
             )),
-        title: Text(
+        title: const Text(
           'add more item',
           style: TextStyle(color: Colors.white),
         ),

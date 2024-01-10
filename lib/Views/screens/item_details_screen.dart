@@ -17,7 +17,7 @@ class ItemDetScreen extends StatelessWidget {
         backgroundColor: AppColor.kPrimaryColor,
         title: Text(
           emeritem.title,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
         leading: IconButton(
             onPressed: () {
@@ -29,10 +29,10 @@ class ItemDetScreen extends StatelessWidget {
             )),
       ),
       body: Padding(
-        padding: EdgeInsets.all(theDefaultPadding),
+        padding: const EdgeInsets.all(theDefaultPadding),
         child: Column(
           children: [
-            Spacer(),
+            const Spacer(),
             Center(
                 child: Column(
               children: [
@@ -54,19 +54,20 @@ class ItemDetScreen extends StatelessWidget {
                             CircularProgressIndicator(
                                 color: AppColor.kPrimaryColor,
                                 value: downloadProgress.progress),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
                   ),
                 ),
                 emptySpace,
                 Text(
                   emeritem.description,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: AppColor.kPrimaryColor,
                   ),
                 ),
               ],
             )),
-            Spacer(),
+            const Spacer(),
             Row(
               children: [
                 Expanded(
@@ -82,7 +83,7 @@ class ItemDetScreen extends StatelessWidget {
                           builder: ((context) =>
                               EditItemScreen(emeritem: emeritem))));
                     },
-                    child: Text(
+                    child: const Text(
                       'edit',
                       style: TextStyle(
                         // color: AppColor.kPrimaryColor,
@@ -105,7 +106,7 @@ class ItemDetScreen extends StatelessWidget {
                         barrierColor: Colors.black26,
                         context: context,
                         builder: (context) {
-                          return CustomAlertDialog(
+                          return const CustomAlertDialog(
                             title: "Remove item !!",
                             description: "you are about to remove this item",
                           );
@@ -141,7 +142,7 @@ class ItemDetScreen extends StatelessWidget {
                       //       );
                       //     });
                     },
-                    child: Text(
+                    child: const Text(
                       'remove',
                       style: TextStyle(
                         color: Colors.white,
