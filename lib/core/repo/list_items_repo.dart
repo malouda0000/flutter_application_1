@@ -10,12 +10,21 @@ class CustomItemsRepo {
 
       var response = await http.get(url);
 
+      // if (response.statusCode == 200 ) {
+
       List<Emeritem> emerItems = (json.decode(response.body))
           .map<Emeritem>((jsonTodo) => Emeritem.fromJson(jsonTodo))
           .toList();
 
       // print(emerItems[0].imageUrl);
       return emerItems;
+
+      // }
+      // else if (response.statusCode != 200) {
+
+// return
+
+      // }
 
       // else if (response.statusCode != 200) {}
     } catch (e) {
@@ -24,13 +33,7 @@ class CustomItemsRepo {
   }
 }
 
-
 //========================================================
-
-
-
-
-
 
 // import 'dart:convert';
 // import 'package:flutter_application_1/Models/emer_item_modle.dart';
