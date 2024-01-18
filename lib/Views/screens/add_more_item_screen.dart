@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
 import 'package:flutter_application_1/core/constants/constants.dart';
-import 'package:flutter_application_1/core/repo/add_item_repo.dart';
+import 'package:flutter_application_1/repositories/add_item_repo.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 final _formKey = GlobalKey<FormBuilderState>();

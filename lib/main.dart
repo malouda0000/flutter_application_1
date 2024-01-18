@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Controllers/bloc/custom_items_bloc.dart';
+import 'package:flutter_application_1/Controllers/custom_items_bloc/custom_items_bloc.dart';
 import 'package:flutter_application_1/Views/widgets/custom_errore_widget.dart';
 import 'package:flutter_application_1/Views/widgets/custom_loading_widget.dart';
 import 'package:flutter_application_1/Views/widgets/items_widget.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
-import 'package:flutter_application_1/core/repo/list_items_repo.dart';
+import 'package:flutter_application_1/repositories/list_items_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {

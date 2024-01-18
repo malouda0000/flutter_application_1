@@ -1,4 +1,4 @@
-import 'package:flutter_application_1/core/repo/list_items_repo.dart';
+import 'package:flutter_application_1/repositories/list_items_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_application_1/Models/emer_item_modle.dart';

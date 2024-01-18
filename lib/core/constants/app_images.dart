@@ -18,8 +18,8 @@ class AppImages {
   static const String notificationSvg = 'assets/icons/notification.svg';
   static const String searchSvg = 'assets/icons/search.svg';
   static const String bag = 'assets/icons/bag.svg';
-  static const String burger_beer = 'assets/icons/burger_beer.svg';
-  static const String chinese_noodles = 'assets/icons/chinese_noodles.svg';
+  static const String burgerBeer = 'assets/icons/burger_beer.svg';
+  static const String chineseNoodles = 'assets/icons/chinese_noodles.svg';
   static const String favouret = 'assets/icons/favouret.svg';
   static const String location = 'assets/icons/location.svg';
   static const String home = 'assets/icons/home.svg';
