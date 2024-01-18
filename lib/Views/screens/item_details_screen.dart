@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Models/emer_item_modle.dart';
 import 'package:flutter_application_1/Views/screens/edit_item_screen.dart';
 import 'package:flutter_application_1/Views/widgets/custom_alert_dialog.dart';
+import 'package:flutter_application_1/core/constants/app_api_links.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
 import 'package:flutter_application_1/core/constants/constants.dart';
 
@@ -47,12 +48,12 @@ class ItemDetScreen extends StatelessWidget {
                         width: 2,
                       )),
                   child: CachedNetworkImage(
-                    imageUrl: emeritem.imageUrl ??
-                        "http://via.placeholder.com/350x150",
+                    imageUrl:
+                        emeritem.imageUrl ?? AppApiLinks.customImagePlaseHolder,
                     progressIndicatorBuilder:
                         (context, url, downloadProgress) =>
                             CircularProgressIndicator(
-                                color: AppColor.kPrimaryColor,
+                                color: AppColor.ksecondaryColor,
                                 value: downloadProgress.progress),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
@@ -72,12 +73,9 @@ class ItemDetScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: ElevatedButton(
-                    // style: ButtonStyle(backgroundColor: AppColor.kPrimaryColor, ),
-
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColor.kPrimaryColor,
                     ),
-
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: ((context) =>

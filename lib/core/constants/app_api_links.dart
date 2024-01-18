@@ -15,7 +15,14 @@ class AppApiLinks {
 //  #####  //
   static const String createEndPoint = '/create.php';
 
+  static const String customImagePlaseHolder =
+      "http://via.placeholder.com/350x150";
+
 //  #####  //
+//  #####  //
+//  #####  //
+//  #####  //
+
   static const String getEmerItemsListApi =
       "${AppApiLinks.mainTestApi}${AppApiLinks.readEndPoint}?email=${AppApiLinks.userEmail}";
 }
