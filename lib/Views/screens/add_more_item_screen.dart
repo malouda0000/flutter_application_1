@@ -3,6 +3,7 @@ import 'package:flutter_application_1/core/constants/app_color.dart';
 import 'package:flutter_application_1/core/constants/constants.dart';
 import 'package:flutter_application_1/repositories/add_item_repo.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:go_router/go_router.dart';
 
 final _formKey = GlobalKey<FormBuilderState>();
 
@@ -15,7 +16,7 @@ class AddMoreItemScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop();
             },
             icon: const Icon(
               Icons.arrow_back_ios_new,

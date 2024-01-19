@@ -7,27 +7,29 @@ class CustomErorreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(
-              theDefaultPadding,
-            ),
-            child: Text(
-              errorMassage,
-              style: const TextStyle(
-                fontSize: 18,
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(
+                theDefaultPadding,
               ),
-              textAlign: TextAlign.center,
+              child: Text(
+                errorMassage,
+                style: const TextStyle(
+                  fontSize: 18,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('try Again'),
-          )
-        ],
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('try Again'),
+            )
+          ],
+        ),
       ),
     );
   }

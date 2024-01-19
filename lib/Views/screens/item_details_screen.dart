@@ -5,7 +5,9 @@ import 'package:flutter_application_1/Views/screens/edit_item_screen.dart';
 import 'package:flutter_application_1/Views/widgets/custom_alert_dialog.dart';
 import 'package:flutter_application_1/core/constants/app_api_links.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
+import 'package:flutter_application_1/core/constants/app_routes.dart';
 import 'package:flutter_application_1/core/constants/constants.dart';
+import 'package:go_router/go_router.dart';
 
 class ItemDetScreen extends StatelessWidget {
   final Emeritem emeritem;
@@ -22,7 +24,7 @@ class ItemDetScreen extends StatelessWidget {
         ),
         leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              context.pop();
             },
             icon: const Icon(
               Icons.arrow_back_ios_new,
@@ -77,9 +79,12 @@ class ItemDetScreen extends StatelessWidget {
                       backgroundColor: AppColor.kPrimaryColor,
                     ),
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: ((context) =>
-                              EditItemScreen(emeritem: emeritem))));
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //     builder: ((context) =>
+                      //         EditItemScreen(emeritem: emeritem))));
+
+                      context.pushNamed(AppRoute.editItemScreen,
+                          extra: emeritem);
                     },
                     child: const Text(
                       'edit',

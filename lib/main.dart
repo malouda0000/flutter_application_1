@@ -4,6 +4,7 @@ import 'package:flutter_application_1/Views/widgets/custom_errore_widget.dart';
 import 'package:flutter_application_1/Views/widgets/custom_loading_widget.dart';
 import 'package:flutter_application_1/Views/widgets/items_widget.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
+import 'package:flutter_application_1/core/constants/app_routes.dart';
 import 'package:flutter_application_1/repositories/list_items_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,15 +23,19 @@ class MyApp extends StatelessWidget {
         ..add(
           GetAllItems(),
         ),
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
+        themeMode: ThemeMode.system,
+        routerConfig: customGoRouter,
+        themeAnimationCurve: Curves.easeOut,
+
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
         // home: const AddMoreItemScreen(),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        // home: const MyHomePage(title: 'Emerging Ideas'),
       ),
     );
   }
