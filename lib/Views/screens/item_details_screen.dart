@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Models/emer_item_modle.dart';
-import 'package:flutter_application_1/Views/screens/edit_item_screen.dart';
 import 'package:flutter_application_1/Views/widgets/custom_alert_dialog.dart';
 import 'package:flutter_application_1/core/constants/app_api_links.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
