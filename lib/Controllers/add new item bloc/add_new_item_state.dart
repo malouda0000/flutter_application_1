@@ -19,6 +19,11 @@ class LoadedNewItemState extends AddNewItemState {
   List<Object> get props => [];
 }
 
+class NewItemAddedSuccessState extends AddNewItemState {
+  @override
+  List<Object> get props => [];
+}
+
 class AddNewItemErrorState extends AddNewItemState {
   final String errorMassage;
   const AddNewItemErrorState({required this.errorMassage});

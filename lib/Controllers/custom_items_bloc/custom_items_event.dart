@@ -9,4 +9,4 @@ sealed class CustomItemsEvent extends Equatable {
 
 class GetAllItemsEvent extends CustomItemsEvent {}
 
-class AddNewItemEvent extends CustomItemsEvent {}
+// class AddNewItemEvent extends CustomItemsEvent {}
