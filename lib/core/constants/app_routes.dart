@@ -2,6 +2,7 @@ import 'package:flutter_application_1/Models/emer_item_modle.dart';
 import 'package:flutter_application_1/Views/screens/add_more_item_screen.dart';
 import 'package:flutter_application_1/Views/screens/edit_item_screen.dart';
 import 'package:flutter_application_1/Views/screens/item_details_screen.dart';
+import 'package:flutter_application_1/Views/tests/test_widget.dart';
 import 'package:flutter_application_1/main.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,6 +27,7 @@ class AppRoute {
   static const String addMoreItemsScreen = '/addMoreItemsScreen';
   static const String editItemScreen = '/editItemScreen';
   static const String itemDetailsScreen = '/itemDetailsScreen';
+  static const String testWidgetsScreen = '/testWidgetsScreen';
   // static const String aboutScreen = '/aboutScreen';
 
 // // setting screens
@@ -42,6 +44,7 @@ class AppRoute {
 
 GoRouter customGoRouter = GoRouter(
   initialLocation: AppRoute.myHomePage,
+  // initialLocation: AppRoute.testWidgetsScreen,
 
   // errorPageBuilder: (context, state) => CustomErorreScreen(errorMassage: state.extra as String ,),
 
@@ -74,6 +77,11 @@ GoRouter customGoRouter = GoRouter(
       builder: (context, state) => ItemDetScreen(
         emeritem: state.extra as Emeritem,
       ),
+    ),
+    GoRoute(
+      name: AppRoute.testWidgetsScreen,
+      path: AppRoute.testWidgetsScreen,
+      builder: (context, state) => const CustomTestWidget(),
     ),
   ],
 );

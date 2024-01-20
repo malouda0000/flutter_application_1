@@ -40,6 +40,8 @@ class ItemDetScreen extends StatelessWidget {
               children: [
                 Container(
                   clipBehavior: Clip.hardEdge,
+                  width: MediaQuery.of(context).size.width * .9,
+                  height: MediaQuery.of(context).size.width * .7,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(
                         theDefaultRaduis,
@@ -49,13 +51,12 @@ class ItemDetScreen extends StatelessWidget {
                         width: 2,
                       )),
                   child: CachedNetworkImage(
-                    imageUrl:
-                        emeritem.imageUrl ?? AppApiLinks.customImagePlaseHolder,
+                    imageUrl: emeritem.imgLink,
                     progressIndicatorBuilder:
-                        (context, url, downloadProgress) =>
-                            CircularProgressIndicator(
-                                color: AppColor.ksecondaryColor,
-                                value: downloadProgress.progress),
+                        (context, url, downloadProgress) => Center(
+                      child: CircularProgressIndicator(
+                          value: downloadProgress.progress),
+                    ),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                   ),
