@@ -1,69 +1,57 @@
 import 'dart:convert';
 
-import 'package:flutter_application_1/Models/emer_item_modle.dart';
+import 'package:flutter_application_1/Views/screens/add_more_item_screen.dart';
+import 'package:flutter_application_1/core/constants/app_api_links.dart';
 import 'package:http/http.dart' as http;
 
-Future postItem(
-
-    // String title
-
-    ) async {
+Future<bool> postItem() async {
+  final String itemTitle =
+      addItemFormKey.currentState!.value['title'] as String;
+  final String itemDescription =
+      addItemFormKey.currentState!.value['discription'] as String;
+  final String itemImgUrl =
+      addItemFormKey.currentState!.value['img link'] as String;
   Map<String, String> reqestes = {
-    "title": "tessst",
-    "email": "email=mike.hsch@gmail.com",
-    "description":
-        "this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali",
-    "img_link": "new tesst"
+    "title": itemTitle,
+    // "email": "email=mike.hsch@gmail.com",
+    "email": AppApiLinks.userEmail,
+    "description": itemDescription,
+    // "img_link": AppOnlineImage.spaceImgPng,
+    "img_link": itemImgUrl,
   };
 
-  final urlll = Uri.parse(
-    'https://emergingideas.ae/test_apis/create.php',
-
-    // 'https://jsonplaceholder.typicode.com/albums',
+  final url = Uri.parse(
+    "${AppApiLinks.mainTestApi}${AppApiLinks.createEndPoint}",
   );
 
-  final response = await http.post(urlll, body: reqestes);
-
   try {
-    //   Future post = http.post(
-    //     Uri.parse(
-    //       'https://emergingideas.ae/test_apis/create.php',
+    final http.Response response =
+        await http.post(url, body: jsonEncode(reqestes));
+    print('response staaaaaaaats code: ${response.statusCode}');
+    if (response.statusCode == 200) {
+      print('succccessss pooostttting post request ');
 
-    //       // 'https://jsonplaceholder.typicode.com/albums',
-    //     ),
-    //     // headers: <String, String>{
-    //     //   // 'Content-Type': 'application/json; charset=UTF-8',
-    //     //   "email": "email=mike.hsch@gmail.com",
-    //     //   "description":
-    //     //       "this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali",
-    //     //   "title": "new tesst",
-    //     //   "img_link": "new tesst"
-    //     // },
-    // //     body: jsonEncode(<String, String>{
-    // //       "title": "tessst",
-    // // "email": "email=mike.hsch@gmail.com",
-    // //       "description":
-    // //           "this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali",
-    // //       "img_link": "new tesst"
+      // void _showToast(BuildContext context) {
+      //   final scaffold = ScaffoldMessenger.of(context);
+      //   scaffold.showSnackBar(
+      //     SnackBar(
+      //       content: const Text('Added to favorite'),
+      //       action: SnackBarAction(
+      //           label: 'UNDO', onPressed: scaffold.hideCurrentSnackBar),
+      //     ),
+      //   );
+      // }
 
-    // //     }),
+      // return Emeritem.fromJson(jsonDecode(response.body)) as List<Emeritem>;
 
-    //   );
-
-    if (response.statusCode == 201) {
-      print('succccessss pooostttt ');
-      // print(post.);
-
-      return Emeritem.fromJson(jsonDecode(response.body));
-
-      //
-      //
+      return true;
     } else {
-      // print('errrrrororororor');
-      throw 'Error';
+      print('errrrrororororor in posting post request ');
+      return false;
+      // throw 'Error';
     }
   } catch (e) {
-    // print(e);
-    throw 'Error';
+    print('errrrrororororor  ${e.toString()} ');
+    throw 'Errorrrrr: $e ';
   }
 }

@@ -127,3 +127,8 @@ class FoodImages {
   static const String soda4 = 'assets/foods/soda/soad4.jpg';
   static const String soda5 = 'assets/foods/soda/soad5.jpg';
 }
+
+class AppOnlineImage {
+  static const String spaceImgPng =
+      "https://commondatastorage.googleapis.com/codeskulptor-assets/lathrop/nebula_brown.png";
+}

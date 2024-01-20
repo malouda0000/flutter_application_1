@@ -2,6 +2,7 @@ class AppApiLinks {
 //  ####  //
 //"https://emergingideas.ae/test_apis/read.php?email=mike.hsch@gmail.com"
 //"https://emergingideas.ae/test_apis/read.php?email=<mike.hsch@gmail.com>"
+//"https://emergingideas.ae/test_apis/create.php"
 
 //  #####  //
   static const String userEmail = 'mike.hsch@gmail.com';
@@ -25,4 +26,7 @@ class AppApiLinks {
 
   static const String getEmerItemsListApi =
       "${AppApiLinks.mainTestApi}${AppApiLinks.readEndPoint}?email=${AppApiLinks.userEmail}";
+
+  static const String postEmerItemsListApi =
+      "${AppApiLinks.mainTestApi}${AppApiLinks.createEndPoint}?email=${AppApiLinks.userEmail}";
 }

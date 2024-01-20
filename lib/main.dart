@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Controllers/add%20new%20item%20bloc/add_new_item_bloc.dart';
 import 'package:flutter_application_1/Controllers/custom_items_bloc/custom_items_bloc.dart';
 import 'package:flutter_application_1/Views/widgets/custom_errore_widget.dart';
 import 'package:flutter_application_1/Views/widgets/custom_loading_widget.dart';
@@ -18,11 +19,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CustomItemsBloc(customItemsRepo: CustomItemsRepo())
-        ..add(
-          GetAllItems(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CustomItemsBloc>(
+          create: (context) =>
+              CustomItemsBloc(customItemsRepo: CustomItemsRepo())
+                ..add(
+                  GetAllItemsEvent(),
+                ),
         ),
+        BlocProvider<AddNewItemBloc>(
+          create: (context) => AddNewItemBloc(),
+        ),
+      ],
+      // create: (context) => CustomItemsBloc(customItemsRepo: CustomItemsRepo())
+      //   ..add(
+      //     GetAllItems(),
+      //   ),
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',

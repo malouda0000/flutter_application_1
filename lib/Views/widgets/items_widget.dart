@@ -18,7 +18,7 @@ class CustomItemsWidget extends StatelessWidget {
           Expanded(
             child: RefreshIndicator(
               onRefresh: () async {
-                GetAllItems();
+                GetAllItemsEvent();
               },
               color: AppColor.kPrimaryColor,
               child: ListView.builder(

@@ -9,4 +9,4 @@ const SizedBox emptySpace = SizedBox(
   width: 10,
 );
 
-class AppConstants {}
+// class AppConstants {}

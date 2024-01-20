@@ -7,4 +7,6 @@ sealed class CustomItemsEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class GetAllItems extends CustomItemsEvent {}
+class GetAllItemsEvent extends CustomItemsEvent {}
+
+class AddNewItemEvent extends CustomItemsEvent {}
