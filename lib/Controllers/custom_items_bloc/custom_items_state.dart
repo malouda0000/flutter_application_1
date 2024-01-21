@@ -7,7 +7,8 @@ sealed class CustomItemsState extends Equatable {
   List<Object> get props => [];
 }
 
-// final class CustomItemsInitial extends CustomItemsState {}
+final class CustomItemsInitial extends CustomItemsState {}
+
 class LoadingState extends CustomItemsState {}
 
 class LoadedState extends CustomItemsState {

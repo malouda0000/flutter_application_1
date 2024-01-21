@@ -7,11 +7,15 @@ part 'custom_items_event.dart';
 part 'custom_items_state.dart';
 
 class CustomItemsBloc extends Bloc<CustomItemsEvent, CustomItemsState> {
-  final CustomItemsRepo customItemsRepo;
-  CustomItemsBloc({required this.customItemsRepo}) : super(LoadingState()) {
+  CustomItemsBloc(
+      //{} required this.customItemsRepo }
+      )
+      : super(LoadingState()) {
     on<CustomItemsEvent>(
       (event, emit) async {
         if (event is GetAllItemsEvent) {
+          final CustomItemsRepo customItemsRepo = CustomItemsRepo();
+
           emit(LoadingState());
           try {
             final emeritem = await customItemsRepo.getAllItems();

@@ -1,42 +1,41 @@
 // import 'dart:convert';
+// import 'dart:io';
 
-// import 'package:http/http.dart' as http;
+import 'package:flutter_application_1/core/constants/app_api_links.dart';
+import 'package:http/http.dart' as http;
 
-// Future postItem(
+class DeletItemRepository {
+  Future<http.Response> deletItemRepository({
+    required final String userEmail,
+    required final String itemId,
+  }) async {
+    Map<String, dynamic> parametres = {
+      "email": userEmail,
+      "id": itemId,
+    };
 
-//     // String title
+    final url = Uri.parse(
+      "${AppApiLinks.mainTestApi}${AppApiLinks.deleteEndPoint}?email=${parametres['email']}&id=${parametres['id']}",
+    );
 
-//     ) async {
-//   try {
-//     Future post = http.post(
-//       Uri.parse(
-//         'https://emergingideas.ae/test_apis/create.php',
+    try {
+      final deletResponse = await http.delete(
+        url,
+        // headers:reqestes,
+        // body: jsonEncode(parametres),
+      );
 
-//         // 'https://jsonplaceholder.typicode.com/albums',
-//       ),
-//       headers: <String, String>{
-//         // 'Content-Type': 'application/json; charset=UTF-8',
-//         "email": "email=mike.hsch@gmail.com",
-//         "description":
-//             "this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali",
-//         "title": "new tesst",
-//         "img_link": "new tesst"
-//       },
-//       body: jsonEncode(<String, String>{
-//         "title": "tessst",
-//       }),
-//     );
-//     if (post != null) {
-//       // print('succccessss');
-//       // print(post.);
+      // if (deletResponse.statusCode == 200) {
+      //   // return Future.error("error: status code ${deletResponse.statusCode}");
+      //   return true;
+      // } else {
+      //   return false;
+      // }
 
-//       return post;
-//     } else {
-//       // print('errrrrororororor');
-//       throw 'Error';
-//     }
-//   } catch (e) {
-//     // print(e);
-//     throw 'Error';
-//   }
-// }
+      return deletResponse;
+    } catch (e) {
+      // print(e);
+      throw 'Errorrr in deleting the item: $e';
+    }
+  }
+}

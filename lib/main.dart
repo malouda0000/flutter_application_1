@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Controllers/add%20new%20item%20bloc/add_new_item_bloc.dart';
 import 'package:flutter_application_1/Controllers/custom_items_bloc/custom_items_bloc.dart';
+import 'package:flutter_application_1/Controllers/item%20details%20bloc/item_details_bloc.dart';
 import 'package:flutter_application_1/Views/widgets/custom_errore_widget.dart';
 import 'package:flutter_application_1/Views/widgets/custom_loading_widget.dart';
 import 'package:flutter_application_1/Views/widgets/items_widget.dart';
@@ -22,14 +23,18 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<CustomItemsBloc>(
-          create: (context) =>
-              CustomItemsBloc(customItemsRepo: CustomItemsRepo())
-                ..add(
-                  GetAllItemsEvent(),
-                ),
+          create: (context) => CustomItemsBloc(
+              // customItemsRepo: CustomItemsRepo()
+              )
+            ..add(
+              GetAllItemsEvent(),
+            ),
         ),
         BlocProvider<AddNewItemBloc>(
           create: (context) => AddNewItemBloc(),
+        ),
+        BlocProvider(
+          create: (context) => ItemDetailsBloc(),
         ),
       ],
       // create: (context) => CustomItemsBloc(customItemsRepo: CustomItemsRepo())
