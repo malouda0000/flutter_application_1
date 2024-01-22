@@ -11,16 +11,16 @@ final class ItemDetailsInitialState extends ItemDetailsState {}
 
 final class ItemDetailsLoadingState extends ItemDetailsState {}
 
-final class ItemDetailsRemovdedState extends ItemDetailsState {
-  // CustomItemsBloc customItemsBloc = CustomItemsBloc();
-}
-
 final class ItemDetailsLoadedState extends ItemDetailsState {
   // final Emeritem emeritem;
   // const LoadedState({required this.emeritem});
   // @override
   // List<Object> get props => [emeritem];
 }
+
+final class ItemDetailsRemovdedState extends ItemDetailsState {}
+
+final class ItemEditedSuccsfluyState extends ItemDetailsState {}
 
 final class ItemDetailsErrorState extends ItemDetailsState {
   final String errorMassage;

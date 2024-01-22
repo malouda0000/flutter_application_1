@@ -1,42 +1,44 @@
-// import 'dart:convert';
+import 'dart:convert';
+import 'package:flutter_application_1/core/constants/app_api_links.dart';
+import 'package:http/http.dart' as http;
 
-// import 'package:http/http.dart' as http;
+class EditItemRepository {
+  Future<http.Response> editItemRepository({
+    required String userEmail,
+    required String itemId,
+    required String itemTitle,
+    required String itemDescription,
+    required String itemImgUrl,
+  }) async {
+    Map<String, String> reqestes = {
+      "email": userEmail,
+      // "email": "email=mike.hsch@gmail.com",
+      "id": itemId,
+      "title": itemTitle,
+      "description": itemDescription,
+      "img_link": itemImgUrl,
+      // "img_link": AppOnlineImage.spaceImgPng,
+    };
 
-// Future postItem(
+    final url = Uri.parse(
+      "${AppApiLinks.mainTestApi}${AppApiLinks.editEndPoint}?email=${reqestes['email']}&id=${reqestes['id']}&title=${reqestes['title']}&description=${reqestes['description']}&img_link=${reqestes['img_link']}",
+    );
 
-//     // String title
+    try {
+      final http.Response response = await http.put(
+        url,
+        // body: jsonEncode(reqestes),
+      );
 
-//     ) async {
-//   try {
-//     Future post = http.post(
-//       Uri.parse(
-//         'https://emergingideas.ae/test_apis/create.php',
-
-//         // 'https://jsonplaceholder.typicode.com/albums',
-//       ),
-//       headers: <String, String>{
-//         // 'Content-Type': 'application/json; charset=UTF-8',
-//         "email": "email=mike.hsch@gmail.com",
-//         "description":
-//             "this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali,this is just a test from Hummam Mohamed Hamza Ali",
-//         "title": "new tesst",
-//         "img_link": "new tesst"
-//       },
-//       body: jsonEncode(<String, String>{
-//         "title": "tessst",
-//       }),
-//     );
-//     if (post != null) {
-//       // print('succccessss');
-//       // print(post.);
-
-//       return post;
-//     } else {
-//       // print('errrrrororororor');
-//       throw 'Error';
-//     }
-//   } catch (e) {
-//     // print(e);
-//     throw 'Error';
-//   }
-// }
+      // if (response.statusCode == 200) {
+      //   return true;
+      // } else {
+      //   return false;
+      //   // throw 'Error';
+      // }
+      return response;
+    } catch (e) {
+      throw 'Errorrrrr: $e ';
+    }
+  }
+}
