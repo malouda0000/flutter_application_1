@@ -105,11 +105,9 @@ class _Body extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: emeritem.imgLink,
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
-                    Center(
-                  child: CircularProgressIndicator(
-                      value: downloadProgress.progress),
-                ),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                    const CustomLoadingWidget(),
+                errorWidget: (context, url, error) =>
+                    const Icon(Icons.error, size: 200),
               ),
             ),
             emptySpace,
