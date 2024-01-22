@@ -10,13 +10,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:go_router/go_router.dart';
 
-final addItemFormKey = GlobalKey<FormBuilderState>();
-final TextEditingController titleController = TextEditingController();
-final TextEditingController descriptionController = TextEditingController();
-final TextEditingController itemImgLinkController = TextEditingController();
+class AddMoreItemScreen extends StatefulWidget {
+  AddMoreItemScreen({super.key});
 
-class AddMoreItemScreen extends StatelessWidget {
-  const AddMoreItemScreen({super.key});
+  @override
+  State<AddMoreItemScreen> createState() => _AddMoreItemScreenState();
+}
+
+class _AddMoreItemScreenState extends State<AddMoreItemScreen> {
+  final addItemFormKey = GlobalKey<FormBuilderState>();
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController itemImgLinkController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +67,11 @@ class AddMoreItemScreen extends StatelessWidget {
             if (state is AddNewItemErrorState) {
               return CustomErorreScreen(errorMassage: state.errorMassage);
             } else {
-              return const _Body();
+              return _Body(
+                  addItemFormKey: addItemFormKey,
+                  titleController: titleController,
+                  descriptionController: descriptionController,
+                  itemImgLinkController: itemImgLinkController);
             }
           },
         ),
@@ -74,7 +83,16 @@ class AddMoreItemScreen extends StatelessWidget {
 class _Body extends StatelessWidget {
   const _Body({
     super.key,
+    required this.addItemFormKey,
+    required this.titleController,
+    required this.descriptionController,
+    required this.itemImgLinkController,
   });
+
+  final GlobalKey<FormBuilderState> addItemFormKey;
+  final TextEditingController titleController;
+  final TextEditingController descriptionController;
+  final TextEditingController itemImgLinkController;
 
   @override
   Widget build(BuildContext context) {
@@ -162,3 +180,14 @@ class _Body extends StatelessWidget {
     );
   }
 }
+
+// class _Body extends StatelessWidget {
+//   const _Body({
+//     super.key,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ;
+//   }
+// }
