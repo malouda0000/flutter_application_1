@@ -10,6 +10,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:go_router/go_router.dart';
 
+final _addItemFormKey = GlobalKey<FormBuilderState>();
+
 class AddMoreItemScreen extends StatefulWidget {
   AddMoreItemScreen({super.key});
 
@@ -18,7 +20,6 @@ class AddMoreItemScreen extends StatefulWidget {
 }
 
 class _AddMoreItemScreenState extends State<AddMoreItemScreen> {
-  final addItemFormKey = GlobalKey<FormBuilderState>();
   final TextEditingController titleController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController itemImgLinkController = TextEditingController();
@@ -54,7 +55,7 @@ class _AddMoreItemScreenState extends State<AddMoreItemScreen> {
 
               // this may cause problem in the futuer
               // context.read<AddNewItemBloc>().close();
-              // addItemFormKey.currentState!.reset();
+              // _addItemFormKey.currentState!.reset();
             } else if (state is AddNewItemErrorState) {
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(state.errorMassage)));
@@ -68,7 +69,6 @@ class _AddMoreItemScreenState extends State<AddMoreItemScreen> {
               return CustomErorreScreen(errorMassage: state.errorMassage);
             } else {
               return _Body(
-                  addItemFormKey: addItemFormKey,
                   titleController: titleController,
                   descriptionController: descriptionController,
                   itemImgLinkController: itemImgLinkController);
@@ -83,13 +83,11 @@ class _AddMoreItemScreenState extends State<AddMoreItemScreen> {
 class _Body extends StatelessWidget {
   const _Body({
     super.key,
-    required this.addItemFormKey,
     required this.titleController,
     required this.descriptionController,
     required this.itemImgLinkController,
   });
 
-  final GlobalKey<FormBuilderState> addItemFormKey;
   final TextEditingController titleController;
   final TextEditingController descriptionController;
   final TextEditingController itemImgLinkController;
@@ -99,37 +97,46 @@ class _Body extends StatelessWidget {
     return Column(
       children: [
         FormBuilder(
-          key: addItemFormKey,
+          key: _addItemFormKey,
           child: Column(children: [
             FormBuilderTextField(
               // key: _titleFieldKey,
               name: 'title',
               controller: titleController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter value';
+                }
+                return null;
+              },
               cursorColor: AppColor.kPrimaryColor,
               decoration: const InputDecoration(
                 labelText: 'title',
                 focusColor: AppColor.kPrimaryColor,
               ),
-              // validator: FormBuilderValidators.compose([
-              //   FormBuilderValidators.required(),
-              //   FormBuilderValidators.email(),])
             ),
+
             //  ####  //
             //  ####  //
             //  ####  //
+
             FormBuilderTextField(
               // key: _emailFieldKey,
               name: 'discription',
               controller: descriptionController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter value';
+                }
+                return null;
+              },
               cursorColor: AppColor.kPrimaryColor,
               decoration: const InputDecoration(
                 labelText: 'discription',
                 focusColor: AppColor.kPrimaryColor,
               ),
-              // validator: FormBuilderValidators.compose([
-              //   FormBuilderValidators.required(),
-              //   FormBuilderValidators.email(),
             ),
+
             //  ####  //
             //  ####  //
             //  ####  //
@@ -138,14 +145,17 @@ class _Body extends StatelessWidget {
               // key: _emailFieldKey,
               name: 'img link',
               controller: itemImgLinkController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter value';
+                }
+                return null;
+              },
               cursorColor: AppColor.kPrimaryColor,
               decoration: const InputDecoration(
                 labelText: 'img link',
                 focusColor: AppColor.kPrimaryColor,
               ),
-              // validator: FormBuilderValidators.compose([
-              //   FormBuilderValidators.required(),
-              //   FormBuilderValidators.email(),
             ),
           ]),
         ),
@@ -156,19 +166,22 @@ class _Body extends StatelessWidget {
           ),
           onPressed: () async {
             // Validate and save the form values
-            // addItemFormKey.currentState?.saveAndValidate();
-            // debugPrint(addItemFormKey.currentState?.value.toString());
+            // _addItemFormKey.currentState?.saveAndValidate();
+            // debugPrint(_addItemFormKey.currentState?.value.toString());
 
             // On another side, can access all field values without saving form with instantValues
-            // addItemFormKey.currentState?.validate();
+            // _addItemFormKey.currentState?.validate();
             // debugPrint(
-            //     addItemFormKey.currentState?.instantValue.toString());
-            context.read<AddNewItemBloc>().add(AddNewItemNowEvent(
-                  itemTitle: titleController.text,
-                  itemDescription: descriptionController.text,
-                  itemImgUrl: itemImgLinkController.text,
-                ));
-            // context.pop();
+            //     _addItemFormKey.currentState?.instantValue.toString());
+            _addItemFormKey.currentState!.validate();
+            if (_addItemFormKey.currentState!.validate()) {
+              context.read<AddNewItemBloc>().add(AddNewItemNowEvent(
+                    itemTitle: titleController.text,
+                    itemDescription: descriptionController.text,
+                    itemImgUrl: itemImgLinkController.text,
+                  ));
+              // context.pop();
+            }
           },
           child: const Text(
             'add',
@@ -180,14 +193,3 @@ class _Body extends StatelessWidget {
     );
   }
 }
-
-// class _Body extends StatelessWidget {
-//   const _Body({
-//     super.key,
-//   });
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return ;
-//   }
-// }
