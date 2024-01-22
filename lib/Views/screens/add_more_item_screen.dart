@@ -4,6 +4,7 @@ import 'package:flutter_application_1/Controllers/custom_items_bloc/custom_items
 import 'package:flutter_application_1/Views/widgets/custom_errore_widget.dart';
 import 'package:flutter_application_1/Views/widgets/custom_loading_widget.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
+import 'package:flutter_application_1/core/constants/app_routes.dart';
 import 'package:flutter_application_1/core/constants/constants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -40,10 +41,15 @@ class AddMoreItemScreen extends StatelessWidget {
         child: BlocConsumer<AddNewItemBloc, AddNewItemState>(
           listener: (context, state) {
             if (state is NewItemAddedSuccessState) {
-              context.pop();
+              context.read<CustomItemsBloc>().add(GetAllItemsEvent());
+              context.goNamed(AppRoute.myHomePage);
               ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Item added successfully')));
               context.read<CustomItemsBloc>().add(GetAllItemsEvent());
+
+              // this may cause problem in the futuer
+              // context.read<AddNewItemBloc>().close();
+              // addItemFormKey.currentState!.reset();
             } else if (state is AddNewItemErrorState) {
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(state.errorMassage)));

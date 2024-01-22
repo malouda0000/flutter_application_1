@@ -7,7 +7,6 @@ import 'package:flutter_application_1/Views/widgets/custom_loading_widget.dart';
 import 'package:flutter_application_1/Views/widgets/items_widget.dart';
 import 'package:flutter_application_1/core/constants/app_color.dart';
 import 'package:flutter_application_1/core/constants/app_routes.dart';
-import 'package:flutter_application_1/repositories/list_items_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
