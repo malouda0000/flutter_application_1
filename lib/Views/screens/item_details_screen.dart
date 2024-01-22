@@ -76,7 +76,7 @@ class ItemDetScreen extends StatelessWidget {
 
 class _Body extends StatelessWidget {
   const _Body({
-    super.key,
+    // super.key,
     required this.emeritem,
   });
 
@@ -106,8 +106,17 @@ class _Body extends StatelessWidget {
                 imageUrl: emeritem.imgLink,
                 progressIndicatorBuilder: (context, url, downloadProgress) =>
                     const CustomLoadingWidget(),
-                errorWidget: (context, url, error) =>
+                errorWidget: (context, url, error) => Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
                     const Icon(Icons.error, size: 200),
+                    Text(
+                      error.toString(),
+                      style: const TextStyle(color: Colors.red),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ),
               ),
             ),
             emptySpace,

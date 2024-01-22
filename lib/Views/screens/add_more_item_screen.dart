@@ -13,7 +13,7 @@ import 'package:go_router/go_router.dart';
 final _addItemFormKey = GlobalKey<FormBuilderState>();
 
 class AddMoreItemScreen extends StatefulWidget {
-  AddMoreItemScreen({super.key});
+  const AddMoreItemScreen({super.key});
 
   @override
   State<AddMoreItemScreen> createState() => _AddMoreItemScreenState();
@@ -82,7 +82,7 @@ class _AddMoreItemScreenState extends State<AddMoreItemScreen> {
 
 class _Body extends StatelessWidget {
   const _Body({
-    super.key,
+    // super.key,
     required this.titleController,
     required this.descriptionController,
     required this.itemImgLinkController,

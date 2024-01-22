@@ -84,7 +84,7 @@ class CustomItemsWidget extends StatelessWidget {
 
 class _ItemsList extends StatelessWidget {
   const _ItemsList({
-    super.key,
+    // super.key,
     required this.items,
   });
 

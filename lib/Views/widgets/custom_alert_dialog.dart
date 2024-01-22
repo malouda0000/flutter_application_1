@@ -14,10 +14,10 @@ class CustomAlertDialog extends StatefulWidget {
   final void Function()? onTap;
 
   @override
-  _CustomAlertDialogState createState() => _CustomAlertDialogState();
+  CustomAlertDialogState createState() => CustomAlertDialogState();
 }
 
-class _CustomAlertDialogState extends State<CustomAlertDialog> {
+class CustomAlertDialogState extends State<CustomAlertDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(

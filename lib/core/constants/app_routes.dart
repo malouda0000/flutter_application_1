@@ -57,7 +57,7 @@ GoRouter customGoRouter = GoRouter(
     GoRoute(
       name: AppRoute.addMoreItemsScreen,
       path: AppRoute.addMoreItemsScreen,
-      builder: (context, state) => AddMoreItemScreen(),
+      builder: (context, state) => const AddMoreItemScreen(),
     ),
     GoRoute(
         name: AppRoute.editItemScreen,

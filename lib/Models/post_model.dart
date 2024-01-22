@@ -1,20 +1,20 @@
 // import 'package:flutter/foundation.dart';
 
-class Post {
+class PostItem {
   final int userId;
   final int id;
   final String title;
   final String body;
 
-  Post({
+  PostItem({
     required this.userId,
     required this.id,
     required this.title,
     required this.body,
   });
 
-  factory Post.fromJson(Map<String, dynamic> json) {
-    return Post(
+  factory PostItem.fromJson(Map<String, dynamic> json) {
+    return PostItem(
       userId: json['userId'] as int,
       id: json['id'] as int,
       title: json['title'] as String,

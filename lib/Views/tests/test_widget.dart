@@ -21,7 +21,7 @@ class CustomTestWidget extends StatelessWidget {
               "https://commondatastorage.googleapis.com/codeskulptor-demos/riceracer_assets/img/car_1.png",
           progressIndicatorBuilder: (context, url, downloadProgress) =>
               CircularProgressIndicator(value: downloadProgress.progress),
-          errorWidget: (context, url, error) => Icon(Icons.error),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
       ),
     );
