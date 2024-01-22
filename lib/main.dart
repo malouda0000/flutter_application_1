@@ -78,17 +78,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           backgroundColor: AppColor.kPrimaryColor,
         ),
-        body: BlocBuilder<CustomItemsBloc, CustomItemsState>(
-            builder: (context, state) {
-          if (state is LoadedState) {
-            return CustomItemsWidget(items: state.emeritem);
-          } else if (state is ErrorState) {
-            return CustomErorreScreen(
-              errorMassage: state.errorMassage,
-            );
-          } else {
-            return const CustomLoadingWidget();
-          }
-        }));
+        body: const CustomItemsWidget(
+            // items: items
+            ));
   }
 }

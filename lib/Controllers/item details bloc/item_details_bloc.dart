@@ -17,9 +17,6 @@ class ItemDetailsBloc extends Bloc<ItemDetailsEvent, ItemDetailsState> {
 // i have to fix this logic, becaus it may cus problems i the futuer
         // emit(ItemDetailsLoadedState());
 
-        print(
-            '=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=- loaaaaaddddeeedd loaaaaaddddeeedd loaaaaaddddeeedd');
-
         // if (event is ItemDetailsInitialState) {
         //   print('=-=-=-=-=-=-=-=-=-=-=-=-=-ß-=-=-=- loaaaaaddddeeedd');
 
