@@ -60,6 +60,8 @@ class EditItemScreen extends StatelessWidget {
               context.read<CustomItemsBloc>().add(GetAllItemsEvent());
               context.read<ItemDetailsBloc>().add(ItemDetailsRsetEvent());
               context.goNamed(AppRoute.myHomePage);
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Item edited successfully')));
             }
           }, builder: (context, state) {
             if (state is ItemDetailsLoadingState) {
@@ -190,9 +192,6 @@ class _Body extends StatelessWidget {
             if (_editItemFormKey.currentState!.validate()) {
               // If the form is valid, display a snackbar. In the real world,
               // you'd often call a server or save the information in a database.
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Processing Data')),
-              );
 
               context.read<ItemDetailsBloc>().add(
                     ItemEditeEvent(
