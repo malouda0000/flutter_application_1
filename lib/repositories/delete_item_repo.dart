@@ -24,17 +24,8 @@ class DeletItemRepository {
         // headers:reqestes,
         // body: jsonEncode(parametres),
       );
-
-      // if (deletResponse.statusCode == 200) {
-      //   // return Future.error("error: status code ${deletResponse.statusCode}");
-      //   return true;
-      // } else {
-      //   return false;
-      // }
-
       return deletResponse;
     } catch (e) {
-      // print(e);
       throw 'Errorrr in deleting the item: $e';
     }
   }

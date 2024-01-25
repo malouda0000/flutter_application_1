@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter_application_1/core/constants/app_api_links.dart';
 import 'package:http/http.dart' as http;
 
-Future<bool> postNewItem({
+Future<http.Response> postNewItem({
   required String itemTitle,
   required String itemDescription,
   required String itemImgUrl,
@@ -24,12 +24,14 @@ Future<bool> postNewItem({
     final http.Response response =
         await http.post(url, body: jsonEncode(reqestes));
 
-    if (response.statusCode == 200) {
-      return true;
-    } else {
-      return false;
-      // throw 'Error';
-    }
+    return response;
+
+    // if (response.statusCode == 200) {
+    // return true;
+    // } else {
+    // return false;
+    // throw 'Errorrrrr: ${response.statusCode.toString()}';
+    // }
   } catch (e) {
     throw 'Errorrrrr: $e ';
   }
